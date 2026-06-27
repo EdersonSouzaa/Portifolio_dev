@@ -1167,6 +1167,22 @@ body {
     aspect-ratio: 16 / 10;
 }
 
+/* Theme gradients for JUNO mockup backgrounds */
+.juno-main-image-wrap.purple-theme {
+    background: radial-gradient(circle at 50% 50%, rgba(126, 34, 206, 0.22) 0%, #0f0f13 100%);
+    border-color: rgba(168, 85, 247, 0.15);
+}
+
+.juno-main-image-wrap.blue-theme {
+    background: radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.22) 0%, #0f0f13 100%);
+    border-color: rgba(37, 99, 235, 0.15);
+}
+
+.juno-main-image-wrap.cyan-theme {
+    background: radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.22) 0%, #0f0f13 100%);
+    border-color: rgba(6, 182, 212, 0.15);
+}
+
 .juno-main-img {
     width: 100%;
     height: 100%;
@@ -1177,8 +1193,21 @@ body {
 
 .juno-project-item:hover .juno-main-image-wrap {
     transform: translateY(-6px);
-    border-color: var(--border-hover);
-    box-shadow: 0 40px 80px -25px rgba(0, 0, 0, 0.8);
+}
+
+.juno-project-item:hover .juno-main-image-wrap.purple-theme {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 40px 80px -20px rgba(168, 85, 247, 0.25);
+}
+
+.juno-project-item:hover .juno-main-image-wrap.blue-theme {
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 40px 80px -20px rgba(37, 99, 235, 0.25);
+}
+
+.juno-project-item:hover .juno-main-image-wrap.cyan-theme {
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 40px 80px -20px rgba(6, 182, 212, 0.2);
 }
 
 .juno-project-item:hover .juno-main-img {
