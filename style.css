@@ -1383,6 +1383,24 @@ body {
     object-position: bottom center;
 }
 
+/* Single Image Layout (RPGConnect final.png) */
+.project-showcase-visual.single-image-layout {
+    padding: 0;
+    aspect-ratio: 1080 / 688;
+}
+
+.project-showcase-single-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.project-showcase-item:hover .project-showcase-single-img {
+    transform: scale(1.05);
+}
+
 /* Responsiveness adjustments */
 @media (max-width: 900px) {
     .project-showcase-item {
