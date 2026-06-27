@@ -1167,7 +1167,7 @@ body {
 .project-showcase-visual {
     position: relative;
     border-radius: 32px;
-    padding: 60px;
+    padding: 30px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -1178,24 +1178,24 @@ body {
 
 /* Theme gradients matching each project */
 .project-showcase-visual.purple-theme {
-    background: radial-gradient(circle at 20% 20%, rgba(126, 34, 206, 0.3) 0%, transparent 60%),
-                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 75%),
-                linear-gradient(135deg, #09090b 0%, #121217 100%);
-    border: 1px solid rgba(126, 34, 206, 0.2);
+    background: radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(126, 34, 206, 0.2) 0%, transparent 75%),
+                linear-gradient(135deg, #130a21 0%, #050508 100%);
+    border: 1px solid rgba(168, 85, 247, 0.25);
 }
 
 .project-showcase-visual.blue-theme {
-    background: radial-gradient(circle at 20% 20%, rgba(29, 91, 193, 0.3) 0%, transparent 60%),
-                radial-gradient(circle at 80% 80%, rgba(31, 111, 235, 0.1) 0%, transparent 75%),
-                linear-gradient(135deg, #09090b 0%, #121217 100%);
-    border: 1px solid rgba(31, 111, 235, 0.2);
+    background: radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(29, 78, 216, 0.2) 0%, transparent 75%),
+                linear-gradient(135deg, #071127 0%, #050508 100%);
+    border: 1px solid rgba(37, 99, 235, 0.25);
 }
 
 .project-showcase-visual.cyan-theme {
-    background: radial-gradient(circle at 20% 20%, rgba(0, 242, 254, 0.25) 0%, transparent 60%),
-                radial-gradient(circle at 80% 80%, rgba(15, 118, 110, 0.15) 0%, transparent 75%),
-                linear-gradient(135deg, #09090b 0%, #121217 100%);
-    border: 1px solid rgba(0, 242, 254, 0.2);
+    background: radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.35) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(13, 148, 136, 0.2) 0%, transparent 75%),
+                linear-gradient(135deg, #041b1e 0%, #050508 100%);
+    border: 1px solid rgba(6, 182, 212, 0.25);
 }
 
 /* Hover effects for visual container */
@@ -1204,59 +1204,65 @@ body {
 }
 
 .project-showcase-item:hover .project-showcase-visual.purple-theme {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 0 40px 80px -25px rgba(126, 34, 206, 0.3);
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 0 40px 80px -20px rgba(168, 85, 247, 0.35);
 }
 
 .project-showcase-item:hover .project-showcase-visual.blue-theme {
-    border-color: rgba(31, 111, 235, 0.4);
-    box-shadow: 0 40px 80px -25px rgba(31, 111, 235, 0.3);
+    border-color: rgba(37, 99, 235, 0.5);
+    box-shadow: 0 40px 80px -20px rgba(37, 99, 235, 0.35);
 }
 
 .project-showcase-item:hover .project-showcase-visual.cyan-theme {
-    border-color: rgba(0, 242, 254, 0.4);
-    box-shadow: 0 40px 80px -25px rgba(0, 242, 254, 0.25);
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 40px 80px -20px rgba(6, 182, 212, 0.3);
+}
+
+/* Multi-device Composition Container */
+.showcase-composition {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Laptop Mockup Styles */
 .laptop-container {
     position: relative;
-    width: 84%;
-    max-width: 520px;
-    margin: 0 auto;
-    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.6));
+    width: 72%;
+    max-width: 380px;
+    transform: translateX(-10%); /* Shift left for phone */
+    filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.6));
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-showcase-item:hover .laptop-container {
-    transform: scale(1.03) rotate(-1.5deg);
-}
-
-.project-showcase-item:nth-child(even):hover .laptop-container {
-    transform: scale(1.03) rotate(1.5deg);
+    transform: translateX(-10%) translateY(-6px) scale(1.02);
 }
 
 .laptop-screen {
     position: relative;
     aspect-ratio: 16 / 10.5;
-    background: #000;
-    border: 11px solid #16161e;
-    border-bottom: 13px solid #16161e;
-    border-radius: 12px 12px 0 0;
+    background: #050506;
+    border: 9px solid #1f2029;
+    border-bottom: 11px solid #1f2029;
+    border-radius: 10px 10px 0 0;
     overflow: hidden;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
 /* Webcam dot on screen */
 .laptop-screen::before {
     content: '';
     position: absolute;
-    top: 4px;
+    top: 3px;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
     height: 4px;
-    background: #334155;
+    background: #475569;
     border-radius: 50%;
     z-index: 10;
 }
@@ -1269,7 +1275,7 @@ body {
     transition: object-position 2.5s ease-in-out;
 }
 
-.laptop-container:hover .laptop-screen img {
+.project-showcase-item:hover .laptop-screen img {
     object-position: bottom center;
 }
 
@@ -1277,9 +1283,9 @@ body {
     position: relative;
     width: 116%;
     height: 8px;
-    background: #e2e8f0;
-    border-bottom: 4px solid #cbd5e1;
-    border-radius: 0 0 16px 16px;
+    background: linear-gradient(to bottom, #cbd5e1 0%, #94a3b8 100%);
+    border-bottom: 3px solid #64748b;
+    border-radius: 0 0 12px 12px;
     left: -8%;
     display: flex;
     justify-content: center;
@@ -1292,8 +1298,91 @@ body {
     top: 0;
     width: 22%;
     height: 2px;
-    background: #94a3b8;
-    border-radius: 0 0 3px 3px;
+    background: #475569;
+    border-radius: 0 0 2px 2px;
+}
+
+/* Phone Mockup Styles */
+.phone-container {
+    position: absolute;
+    width: 23%;
+    max-width: 110px;
+    aspect-ratio: 9 / 18.5;
+    background: #050506;
+    border: 5px solid #1f2029;
+    border-radius: 16px;
+    right: 12%;
+    bottom: 8%;
+    z-index: 10;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7));
+    overflow: hidden;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: rotate(3deg);
+}
+
+.project-showcase-item:hover .phone-container {
+    transform: rotate(0deg) translateY(-8px) scale(1.05);
+}
+
+/* Speaker notch */
+.phone-container::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35%;
+    height: 4px;
+    background: #1f2029;
+    border-radius: 2px;
+    z-index: 15;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: object-position 2.5s ease-in-out;
+}
+
+.project-showcase-item:hover .phone-screen img {
+    object-position: bottom center;
+}
+
+/* Responsiveness adjustments */
+@media (max-width: 900px) {
+    .project-showcase-item {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .project-showcase-item:nth-child(even) {
+        grid-template-columns: 1fr;
+    }
+    .project-showcase-item:nth-child(even) .project-showcase-info {
+        order: 1;
+    }
+    .project-showcase-item:nth-child(even) .project-showcase-visual {
+        order: 2;
+    }
+    .laptop-container {
+        width: 80%;
+        max-width: 400px;
+        transform: translateX(0);
+    }
+    .project-showcase-item:hover .laptop-container {
+        transform: translateY(-6px);
+    }
+    .phone-container {
+        display: none; /* Hide phone on mobile for cleaner layout */
+    }
 }
 
 .tech-pill {
