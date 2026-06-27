@@ -1080,362 +1080,419 @@ body {
     color: var(--text-secondary);
 }
 
-/* Projects Showcase Layout */
+/* Projects Showcase Layout (JUNO-Style) */
 .projects-showcase {
     display: flex;
     flex-direction: column;
-    gap: 140px;
-    margin-top: 80px;
+    gap: 100px;
+    margin-top: 60px;
 }
 
-.project-showcase-item {
+/* Divider line */
+.juno-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 40px 0 60px 0;
+    width: 100%;
+}
+
+/* Project Item Container */
+.juno-project-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Project Header (01. RPGConnect) */
+.juno-project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.juno-number {
+    font-family: var(--font-serif);
+    font-size: clamp(54px, 8vw, 84px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1;
+    opacity: 0.7;
+}
+
+.juno-title {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+/* Two-column layout grid */
+.juno-project-grid {
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 80px;
-    align-items: center;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 70px;
+    align-items: start;
 }
 
-.project-showcase-item:nth-child(even) {
-    grid-template-columns: 1.6fr 1fr;
+/* Even items have inverted layout for nice rhythm */
+.juno-project-item:nth-child(even) .juno-project-grid {
+    grid-template-columns: 1fr 1.25fr;
 }
 
-.project-showcase-item:nth-child(even) .project-showcase-info {
+.juno-project-item:nth-child(even) .juno-visuals-col {
     order: 2;
 }
 
-.project-showcase-item:nth-child(even) .project-showcase-visual {
+.juno-project-item:nth-child(even) .juno-details-col {
     order: 1;
 }
 
-.project-showcase-info {
+/* Left Column: Visuals */
+.juno-visuals-col {
+    position: relative;
+    width: 100%;
+}
+
+.juno-main-image-wrap {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+    transition: var(--transition-slow);
+    aspect-ratio: 16 / 10;
+}
+
+/* Theme gradients for JUNO mockup backgrounds */
+.juno-main-image-wrap.purple-theme {
+    background: radial-gradient(circle at 50% 50%, rgba(126, 34, 206, 0.22) 0%, #0f0f13 100%);
+    border-color: rgba(168, 85, 247, 0.15);
+}
+
+.juno-main-image-wrap.blue-theme {
+    background: radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.22) 0%, #0f0f13 100%);
+    border-color: rgba(37, 99, 235, 0.15);
+}
+
+.juno-main-image-wrap.cyan-theme {
+    background: radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.22) 0%, #0f0f13 100%);
+    border-color: rgba(6, 182, 212, 0.15);
+}
+
+.juno-main-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.juno-project-item:hover .juno-main-image-wrap {
+    transform: translateY(-6px);
+}
+
+.juno-project-item:hover .juno-main-image-wrap.purple-theme {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 40px 80px -20px rgba(168, 85, 247, 0.25);
+}
+
+.juno-project-item:hover .juno-main-image-wrap.blue-theme {
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 40px 80px -20px rgba(37, 99, 235, 0.25);
+}
+
+.juno-project-item:hover .juno-main-image-wrap.cyan-theme {
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 40px 80px -20px rgba(6, 182, 212, 0.2);
+}
+
+.juno-project-item:hover .juno-main-img {
+    transform: scale(1.04);
+}
+
+/* Right Column: Details & Collage */
+.juno-details-col {
     display: flex;
     flex-direction: column;
+    gap: 36px;
+    position: relative;
+}
+
+/* Metadata Row (Tools & Focus) */
+.juno-meta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 28px;
 }
 
-.project-showcase-num {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.project-showcase-title {
-    font-family: var(--font-heading);
-    font-size: clamp(36px, 5vw, 54px);
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin: -10px 0 10px;
-}
-
-.project-showcase-desc-wrap {
+.juno-meta-block {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
-.description-title {
+.juno-meta-heading {
     font-family: var(--font-heading);
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
 }
 
-.project-showcase-desc {
-    font-size: 15.5px;
+.juno-meta-text {
+    font-family: var(--font-body);
+    font-size: 14px;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
-.project-showcase-techs {
+.juno-meta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.project-showcase-actions {
+.juno-meta-list li {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 14px;
+}
+
+.juno-meta-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-bright);
+}
+
+/* Wordmark/Stylized Logo */
+.juno-brand-wordmark-wrap {
+    margin: 5px 0;
+}
+
+.juno-wordmark {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+}
+
+/* Project Description & CTA */
+.juno-description-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.juno-description {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.juno-actions {
     display: flex;
     gap: 16px;
 }
 
-/* Visual Container with custom theme gradients */
-.project-showcase-visual {
+/* Collage of Secondary Cards */
+.juno-collage {
     position: relative;
-    border-radius: 32px;
-    padding: 60px;
+    width: 100%;
+    height: 180px;
+    margin-top: 15px;
+}
+
+.juno-collage-card {
+    position: absolute;
+    border-radius: 12px;
     overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transition: var(--transition-slow);
+}
+
+/* Card 1: Main secondary screenshot (mostly on the left) */
+.juno-collage-card.card-1 {
+    width: 55%;
+    aspect-ratio: 16 / 10;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    transform: rotate(-2deg);
+}
+
+.juno-collage-card.card-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card 2: Top right design card */
+.juno-collage-card.card-2 {
+    width: 45%;
+    height: 95px;
+    right: 5%;
+    top: 0;
+    z-index: 1;
+    transform: rotate(3deg);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-slow);
-    aspect-ratio: 16 / 11;
+    padding: 16px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%);
+    border-color: rgba(168, 85, 247, 0.3);
 }
 
-/* Theme gradients matching each project */
-.project-showcase-visual.purple-theme {
-    background: radial-gradient(circle at 10% 20%, #4c1d95 0%, #1e1b4b 90%);
-    border: 1px solid rgba(168, 85, 247, 0.25);
+.card-inner-design {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
 }
 
-.project-showcase-visual.blue-theme {
-    background: radial-gradient(circle at 10% 20%, #1e40af 0%, #0f172a 90%);
-    border: 1px solid rgba(37, 99, 235, 0.25);
+.card-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
-.project-showcase-visual.dark-blue-theme {
-    background: radial-gradient(circle at 30% 30%, #10306b 0%, #071125 100%);
-    border: 1px solid rgba(0, 242, 254, 0.25);
+.card-brand-pill {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-bright);
 }
 
-.project-showcase-visual.cyan-theme {
-    background: radial-gradient(circle at 10% 20%, #0f766e 0%, #042f2e 90%);
-    border: 1px solid rgba(6, 182, 212, 0.25);
-}
-
-/* Glossy diagonal highlight on the visual card */
-.project-showcase-visual::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
-    pointer-events: none;
-}
-
-/* Hover effects for visual container */
-.project-showcase-item:hover .project-showcase-visual {
-    transform: translateY(-8px);
-}
-
-.project-showcase-item:hover .project-showcase-visual.purple-theme {
-    border-color: rgba(168, 85, 247, 0.5);
-    box-shadow: 0 40px 80px -20px rgba(168, 85, 247, 0.35);
-}
-
-.project-showcase-item:hover .project-showcase-visual.blue-theme {
-    border-color: rgba(37, 99, 235, 0.5);
-    box-shadow: 0 40px 80px -20px rgba(37, 99, 235, 0.35);
-}
-
-.project-showcase-item:hover .project-showcase-visual.dark-blue-theme {
-    border-color: rgba(0, 242, 254, 0.5);
-    box-shadow: 0 40px 80px -20px rgba(0, 242, 254, 0.3);
-}
-
-.project-showcase-item:hover .project-showcase-visual.cyan-theme {
-    border-color: rgba(6, 182, 212, 0.5);
-    box-shadow: 0 40px 80px -20px rgba(6, 182, 212, 0.3);
-}
-
-/* Container enabling layout */
-.showcase-composition {
-    position: relative;
-    width: 90%;
-    max-width: 460px;
-    aspect-ratio: 16 / 10;
-    margin: 0 auto;
-}
-
-/* Laptop Mockup Styles */
-.laptop-mockup {
-    position: relative;
-    width: 78%;
-    margin-left: 3%; /* Shift left to make room for phone */
-    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.project-showcase-item:hover .laptop-mockup {
-    transform: translateY(-8px);
-}
-
-.laptop-screen {
-    position: relative;
-    width: 100%;
-    padding-bottom: 62.5%; /* 16:10 ratio */
+/* Card 3: Bottom right info/code card */
+.juno-collage-card.card-3 {
+    width: 48%;
+    right: 0;
+    bottom: -5px;
+    z-index: 2;
+    transform: rotate(-1deg);
+    padding: 14px 18px;
     background: #09090b;
-    border: 9px solid #1c1c22;
-    border-bottom: 11px solid #1c1c22;
-    border-radius: 12px 12px 0 0;
+    border-color: var(--border-color);
+}
+
+.card-inner-tech {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-inner-tech code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-bright);
+    white-space: nowrap;
     overflow: hidden;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    text-overflow: ellipsis;
 }
 
-/* Webcam dot */
-.laptop-screen::before {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
-    background: #3f3f46;
-    border-radius: 50%;
-    z-index: 10;
+.card-inner-tech span {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--text-muted);
 }
 
-/* Glare effect */
-.laptop-screen::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 60%);
-    z-index: 5;
-    pointer-events: none;
+/* Theme variations for specific projects in the collage */
+.juno-project-item:nth-child(even) .juno-collage-card.card-1 {
+    left: auto;
+    right: 0;
+    transform: rotate(2deg);
 }
 
-.laptop-screen img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    transition: object-position 2.5s ease-in-out;
+.juno-project-item:nth-child(even) .juno-collage-card.card-2 {
+    right: auto;
+    left: 5%;
+    transform: rotate(-3deg);
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border-color: rgba(37, 99, 235, 0.3);
 }
 
-.project-showcase-item:hover .laptop-screen img {
-    object-position: bottom center;
+.juno-project-item:nth-child(even) .juno-collage-card.card-3 {
+    right: auto;
+    left: 0;
+    transform: rotate(1deg);
 }
 
-/* Metallic Base */
-.laptop-base {
-    position: relative;
-    width: 112%;
-    height: 8px;
-    margin-left: -6%;
-    background: linear-gradient(to bottom, #cbd5e1 0%, #94a3b8 100%);
-    border-bottom: 3px solid #64748b;
-    border-radius: 0 0 12px 12px;
+/* Project 3 Specific Collage Color */
+.juno-project-item:nth-child(3) .juno-collage-card.card-2 {
+    background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+    border-color: rgba(6, 182, 212, 0.3);
 }
 
-/* Keyboard Groove notch */
-.laptop-base::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 22%;
-    height: 2px;
-    background: #475569;
-    border-radius: 0 0 2px 2px;
+/* Hover effects for collage cards */
+.juno-project-item:hover .juno-collage-card.card-1 {
+    transform: rotate(-4deg) translateY(-8px) scale(1.02);
+    z-index: 4;
 }
 
-/* iPhone Mockup Styles */
-.phone-mockup {
-    position: absolute;
-    width: 23%;
-    max-width: 110px;
-    aspect-ratio: 9 / 18.5;
-    background: #09090b;
-    border: 5px solid #27272a;
-    border-radius: 18px;
-    right: 5%;
-    bottom: -5%;
-    z-index: 15;
-    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
-    overflow: hidden;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+.juno-project-item:hover .juno-collage-card.card-2 {
+    transform: rotate(1deg) translateY(-10px) scale(1.02);
 }
 
-.project-showcase-item:hover .phone-mockup {
-    transform: translateY(-12px) scale(1.03);
+.juno-project-item:hover .juno-collage-card.card-3 {
+    transform: rotate(-2deg) translateY(-6px) scale(1.02);
 }
 
-/* Notch/Dynamic Island */
-.phone-mockup::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 32%;
-    height: 4px;
-    background: #09090b;
-    border-radius: 2px;
-    z-index: 10;
+/* Inverted hover effects for even items */
+.juno-project-item:nth-child(even):hover .juno-collage-card.card-1 {
+    transform: rotate(4deg) translateY(-8px) scale(1.02);
 }
 
-/* Glare effect for phone */
-.phone-mockup::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 60%);
-    z-index: 5;
-    pointer-events: none;
+.juno-project-item:nth-child(even):hover .juno-collage-card.card-2 {
+    transform: rotate(-1deg) translateY(-10px) scale(1.02);
 }
 
-.phone-screen {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
+.juno-project-item:nth-child(even):hover .juno-collage-card.card-3 {
+    transform: rotate(2deg) translateY(-6px) scale(1.02);
 }
 
-.phone-screen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    transition: object-position 2.5s ease-in-out;
-}
-
-.project-showcase-item:hover .phone-screen img {
-    object-position: bottom center;
-}
-
-/* Single Image Layout (RPGConnect final.png) */
-.project-showcase-visual.single-image-layout {
-    padding: 0;
-    aspect-ratio: 1080 / 688;
-}
-
-.project-showcase-single-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform var(--transition-slow);
-}
-
-.project-showcase-item:hover .project-showcase-single-img {
-    transform: scale(1.05);
-}
-
-/* Responsiveness adjustments */
+/* Responsiveness adjustments for JUNO layout */
 @media (max-width: 900px) {
-    .project-showcase-item {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .juno-divider {
+        margin: 40px 0;
     }
-    .project-showcase-item:nth-child(even) {
+    
+    .juno-project-grid, 
+    .juno-project-item:nth-child(even) .juno-project-grid {
         grid-template-columns: 1fr;
+        gap: 36px;
     }
-    .project-showcase-item:nth-child(even) .project-showcase-info {
+    
+    .juno-project-item:nth-child(even) .juno-visuals-col {
         order: 1;
     }
-    .project-showcase-item:nth-child(even) .project-showcase-visual {
+
+    .juno-project-item:nth-child(even) .juno-details-col {
         order: 2;
     }
-    .showcase-composition {
-        width: 100%;
-        max-width: 380px;
-    }
-    .laptop-mockup {
-        width: 100%;
-        margin-left: 0;
-    }
-    .phone-mockup {
-        display: none; /* Hide phone on mobile for cleaner layout */
+    
+    .juno-collage {
+        display: none; /* Hide collage on mobile for clean screen layout */
     }
 }
 
