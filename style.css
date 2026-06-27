@@ -1187,6 +1187,11 @@ body {
     border: 1px solid rgba(37, 99, 235, 0.25);
 }
 
+.project-showcase-visual.dark-blue-theme {
+    background: radial-gradient(circle at 10% 20%, #071931 0%, #030712 90%);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
 .project-showcase-visual.cyan-theme {
     background: radial-gradient(circle at 10% 20%, #0f766e 0%, #042f2e 90%);
     border: 1px solid rgba(6, 182, 212, 0.25);
@@ -1217,6 +1222,11 @@ body {
 .project-showcase-item:hover .project-showcase-visual.blue-theme {
     border-color: rgba(37, 99, 235, 0.5);
     box-shadow: 0 40px 80px -20px rgba(37, 99, 235, 0.35);
+}
+
+.project-showcase-item:hover .project-showcase-visual.dark-blue-theme {
+    border-color: rgba(37, 99, 235, 0.45);
+    box-shadow: 0 40px 80px -20px rgba(30, 64, 175, 0.3);
 }
 
 .project-showcase-item:hover .project-showcase-visual.cyan-theme {
