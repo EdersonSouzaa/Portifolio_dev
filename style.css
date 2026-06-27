@@ -1430,15 +1430,16 @@ body {
 }
 
 .channel-row:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: var(--border-hover);
     transform: translateX(4px);
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
 }
 
-.channel-row:hover .channel-icon {
-    background: rgba(31, 111, 235, 0.1);
-    border-color: var(--accent);
-    color: var(--accent-bright);
+.channel-icon svg {
+    transition: var(--transition);
+}
+
+.channel-row:hover .channel-icon svg {
+    transform: scale(1.1);
 }
 
 .channel-lbl {
@@ -1463,23 +1464,75 @@ body {
 }
 
 .channel-row:hover .channel-arrow {
-    color: var(--accent-bright);
     transform: translate(2px, -2px);
 }
 
-/* Special hover state for WhatsApp */
-.channel-row.WhatsApp-hover:hover {
+/* 1. WhatsApp Hover Style */
+.channel-row.whatsapp-row:hover {
     border-color: rgba(37, 211, 102, 0.3);
+    background: rgba(37, 211, 102, 0.02);
+    box-shadow: 0 10px 30px -15px rgba(37, 211, 102, 0.2);
 }
 
-.channel-row.WhatsApp-hover:hover .channel-icon {
+.channel-row.whatsapp-row:hover .channel-icon {
     background: rgba(37, 211, 102, 0.1);
     border-color: #25d366;
     color: #25d366;
 }
 
-.channel-row.WhatsApp-hover:hover .channel-arrow {
+.channel-row.whatsapp-row:hover .channel-arrow {
     color: #25d366;
+}
+
+/* 2. E-mail Hover Style */
+.channel-row.email-row:hover {
+    border-color: rgba(0, 242, 254, 0.3);
+    background: rgba(0, 242, 254, 0.02);
+    box-shadow: 0 10px 30px -15px rgba(0, 242, 254, 0.2);
+}
+
+.channel-row.email-row:hover .channel-icon {
+    background: rgba(0, 242, 254, 0.1);
+    border-color: var(--accent-bright);
+    color: var(--accent-bright);
+}
+
+.channel-row.email-row:hover .channel-arrow {
+    color: var(--accent-bright);
+}
+
+/* 3. LinkedIn Hover Style */
+.channel-row.linkedin-row:hover {
+    border-color: rgba(10, 102, 194, 0.3);
+    background: rgba(10, 102, 194, 0.02);
+    box-shadow: 0 10px 30px -15px rgba(10, 102, 194, 0.2);
+}
+
+.channel-row.linkedin-row:hover .channel-icon {
+    background: rgba(10, 102, 194, 0.1);
+    border-color: #00a0dc;
+    color: #00a0dc;
+}
+
+.channel-row.linkedin-row:hover .channel-arrow {
+    color: #00a0dc;
+}
+
+/* 4. GitHub Hover Style */
+.channel-row.github-row:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 10px 30px -15px rgba(255, 255, 255, 0.15);
+}
+
+.channel-row.github-row:hover .channel-icon {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.channel-row.github-row:hover .channel-arrow {
+    color: #ffffff;
 }
 
 /* Footer Section */
@@ -1579,7 +1632,8 @@ body {
     text-decoration: none;
 }
 
-.footer-socials a [data-lucide] {
+.footer-socials a [data-lucide],
+.footer-socials a svg {
     width: 16px;
     height: 16px;
 }
