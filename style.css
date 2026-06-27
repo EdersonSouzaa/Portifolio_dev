@@ -1198,9 +1198,11 @@ body {
 .juno-main-image-wrap {
     position: relative;
     width: 100%;
-    z-index: 2; /* Put the image above the ambient glow */
+    z-index: 2;
+    /* Put the image above the ambient glow */
     transition: var(--transition-slow);
-    overflow: visible; /* Ensure shadows and scaling aren't clipped */
+    overflow: visible;
+    /* Ensure shadows and scaling aren't clipped */
 }
 
 .juno-main-img {
@@ -1241,8 +1243,167 @@ body {
 
 .juno-project-item.single-image-only .juno-visuals-col {
     width: 100%;
-    max-width: 1280px; /* Make it super large! */
+    max-width: 1280px;
+    /* Make it super large! */
     margin: 0 auto;
+}
+
+.juno-single-title-wrap {
+    max-width: 1280px;
+    margin: 0 auto 48px auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.juno-single-title-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.juno-single-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5.5vw, 64px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--text-primary) 30%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.juno-single-objective-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.juno-single-objective-label {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-bright);
+    display: block;
+    position: relative;
+    top: 180px;
+}
+
+.juno-single-objective {
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.7;
+    color: var(--text-primary);
+    max-width: 700px;
+    margin: 0;
+    position: relative;
+    top: 200px;
+}
+
+@media (max-width: 900px) {
+    .juno-single-title-wrap {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: flex-start;
+        margin-bottom: 32px;
+    }
+}
+
+/* Bottom wrap for single-image showcase (tech stack and blue CTA button) */
+.juno-single-bottom-wrap {
+    max-width: 1280px;
+    margin: 64px auto 0 auto;
+    /* Margin top to breathe after the mockup */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.juno-single-techs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.juno-single-tech-label {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+}
+
+.juno-single-techs-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.juno-tech-pill {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--accent-bright);
+    background: rgba(0, 242, 254, 0.06);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    padding: 10px 22px;
+    border-radius: 100px;
+    transition: var(--transition-fast);
+}
+
+.juno-tech-pill:hover {
+    background: rgba(0, 242, 254, 0.12);
+    border-color: rgba(0, 242, 254, 0.4);
+    transform: translateY(-2px);
+}
+
+.juno-single-actions {
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    color: #ffffff !important;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 100px;
+    box-shadow: 0 8px 20px -5px rgba(37, 99, 235, 0.4);
+    transition: var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-primary-blue:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    box-shadow: 0 15px 32px -5px rgba(59, 130, 246, 0.6);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 900px) {
+    .juno-single-bottom-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        margin-top: 36px;
+    }
 }
 
 /* Right Column: Details & Collage */
@@ -1507,13 +1668,13 @@ body {
     .juno-divider {
         margin: 40px 0;
     }
-    
-    .juno-project-grid, 
+
+    .juno-project-grid,
     .juno-project-item:nth-child(even) .juno-project-grid {
         grid-template-columns: 1fr;
         gap: 36px;
     }
-    
+
     .juno-project-item:nth-child(even) .juno-visuals-col {
         order: 1;
     }
@@ -1521,9 +1682,10 @@ body {
     .juno-project-item:nth-child(even) .juno-details-col {
         order: 2;
     }
-    
+
     .juno-collage {
-        display: none; /* Hide collage on mobile for clean screen layout */
+        display: none;
+        /* Hide collage on mobile for clean screen layout */
     }
 }
 
