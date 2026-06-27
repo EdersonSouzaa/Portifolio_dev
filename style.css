@@ -502,8 +502,7 @@ body {
 
 .mobile-cta-btn {
     text-align: center;
-    background: #1B61D0;
-    color: #050506 !important;
+    background-color: #1B61D0;
     font-weight: 600 !important;
     border-radius: 999px;
     margin-top: 10px;
