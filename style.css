@@ -1447,6 +1447,12 @@ body {
     --theme-glow-2: rgba(139, 92, 246, 0.08);
 }
 
+.project-card.theme-amber {
+    --theme-color: #d4a24c;
+    --theme-glow-1: rgba(212, 162, 76, 0.18);
+    --theme-glow-2: rgba(212, 162, 76, 0.08);
+}
+
 @media (max-width: 560px) {
     .projects-grid {
         grid-template-columns: 1fr;
